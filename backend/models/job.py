@@ -11,6 +11,7 @@ class StoryJob(Base):
     session_id = Column(String, index=True)
     theme = Column(String)
     story_id = Column(Integer, nullable=True)
+    status = Column(String(50), nullable=False, default="PENDING")    
     error = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     completed_job = Column(DateTime(timezone=True), nullable=True)
