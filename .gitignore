@@ -1,1 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
 .env
+.venv/
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+database.databse
+
+# Node
+node_modules/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
