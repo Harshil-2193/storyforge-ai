@@ -13,7 +13,7 @@ class Story(Base):
     
     nodes = relationship(
         "StoryNode", 
-        back_populates="Story",
+        back_populates="story",
         cascade="all, delete-orphan",
         lazy="selectin"
         )

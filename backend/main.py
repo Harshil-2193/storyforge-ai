@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from core.config import settings
+from routers import story, job
+from db.database import create_tables
 
+create_tables()
 
 app = FastAPI(
     title="StoryForge-AI",
@@ -18,6 +21,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(story.router, prefix=settings.API_PREFIX)
+app.include_router(job.router, prefix=settings.API_PREFIX)
+
+app.get("/")
+def read_root():
+    return{"message":"Welcome to StoryForge-AI API"}
 
 if __name__ == "__main__":
     import uvicorn
